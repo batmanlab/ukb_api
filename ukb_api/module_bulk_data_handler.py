@@ -1,5 +1,9 @@
+import os
 from difflib import get_close_matches
 static_resource_path="/ocean/projects/asc170022p/shared/Data/ukBiobank/meta_data_november_2021/"
+T1_directory="/ocean/projects/asc170022p/shared/Data/ukBiobank/datalad_dataset/inputs/brain_imaging_ds/"
+Freesurfer_directory="/ocean/projects/asc170022p/tighu/UKB_Freesurfer_March2022/"
+
 import pandas as pd
 
 
@@ -7,7 +11,8 @@ class bulk_data_handler:
 
     """
 
-    A class to represent family of methods that can to read and fetch bulk data.
+    A class to represent family of methods that can to read and fetch bulk
+    data.
 
     """
 
@@ -111,7 +116,6 @@ class bulk_data_handler:
         # os.chdir('/ocean/projects/asc170022p/tighu/ukb/inputs/')
         # os.system("datalad get {}".format(sting_for_datalad_command))
 
-
         return "/ocean/projects/asc170022p/tighu/ukb/inputs/"+str_subject_id
 
     def search_category_by_name(self, query = None):
@@ -131,4 +135,74 @@ class bulk_data_handler:
         all_categories_list=unique_category_file_object.readlines()
         formatted_category_list = [a.rstrip() for a in all_categories_list]
         return get_close_matches(query, formatted_category_list, 5, 0.3)
+
+    def fetch_bulk_data(self, subject_list, data_type_string="T1_Image"):
+        """A helper function which returns path to imaging and freesurfer data
+        for provided subjects.
+
+        Args:
+            subject_list: A list of subjects of interest.
+            data_type_string: A string representing the type of file to be
+                fetched.
+
+        Returns:
+           Paths to files requested for input subjects.
+
+        """
+
+        if subject_list is None:
+            raise Exception
+
+        if all(subject_list not in os.listdir(T1_directory)):
+
+            print("T1 not available for all")
+        if data_type_string == "T1_Image":
+            data_files_path = []
+            subjects_available = os.listdir(T1_directory)
+
+            subjects_found = []
+
+            for subject in subject_list:
+
+                if subject in subjects_available:
+                    check_path = T1_directory+subject+"/20252_2_0/T1/T1.nii.gz"
+                    if os.path.exists(check_path):
+                        subjects_found.append(subject)
+                        data_files_path.append(check_path)
+
+            return data_files_path
+
+        elif data_type_string == "FS_brain":
+            data_files_path = []
+            subjects_available = os.listdir(Freesurfer_directory)
+
+            subjects_found = []
+
+            for subject in subject_list:
+
+                if subject in subjects_available:
+                    check_path = Freesurfer_directory+subject+"/3646153_20263_2_0/FreeSurfer/mri/brain.mgz"
+
+                    if os.path.exists(check_path):
+                        subjects_found.append(subject)
+                        data_files_path.append(check_path)
+
+            return data_files_path
+
+        elif data_type_string == "FS_wm":
+            data_files_path = []
+            subjects_available = os.listdir(Freesurfer_directory)
+
+            subjects_found = []
+
+            for subject in subject_list:
+
+                if subject in subjects_available:
+                    check_path = Freesurfer_directory+subject+"/3646153_20263_2_0/FreeSurfer/mri/wm.mgz"
+
+                    if os.path.exists(check_path):
+                        subjects_found.append(subject)
+                        data_files_path.append(check_path)
+
+            return data_files_path
 
