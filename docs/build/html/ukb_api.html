@@ -84,7 +84,8 @@
 <dt class="sig sig-object py" id="ukb_api.module_bulk_data_handler.bulk_data_handler">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ukb_api.module_bulk_data_handler.</span></span><span class="sig-name descname"><span class="pre">bulk_data_handler</span></span><a class="headerlink" href="#ukb_api.module_bulk_data_handler.bulk_data_handler" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>A class to represent family of methods that can to read and fetch bulk data.</p>
+<p>A class to represent family of methods that can to read and fetch bulk
+data.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="ukb_api.module_bulk_data_handler.bulk_data_handler.display_all_categories">
 <span class="sig-name descname"><span class="pre">display_all_categories</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ukb_api.module_bulk_data_handler.bulk_data_handler.display_all_categories" title="Permalink to this definition"></a></dt>
@@ -98,6 +99,25 @@ file.</p>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>List of strings which represent all the data categories
 present in the UKB dataset.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ukb_api.module_bulk_data_handler.bulk_data_handler.fetch_bulk_data">
+<span class="sig-name descname"><span class="pre">fetch_bulk_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">subject_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_type_string</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'T1_Image'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ukb_api.module_bulk_data_handler.bulk_data_handler.fetch_bulk_data" title="Permalink to this definition"></a></dt>
+<dd><p>A helper function which returns path to imaging and freesurfer data
+for provided subjects.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>subject_list</strong> – A list of subjects of interest.</p></li>
+<li><p><strong>data_type_string</strong> – A string representing the type of file to be
+fetched.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Paths to files requested for input subjects.</p>
 </dd>
 </dl>
 </dd></dl>
