@@ -7,7 +7,9 @@ Datalad is designed as a tool to version control large datasets in a manner quit
 Additionally this repository also houses the notebook files related to this project showcasing exploratory data analysis done on multiple categories.The modules are currently designed to give access to the necessary data through the use of maximum of three-four lines of code.
 ## Documentation
 ```
-[Documentation for this repo can be found here](ukb_api/docs/build/html/index.html)
+[Documentation for this repo can be found here]
+
+![Documentation](ukb_api/docs/build/html/index.html)
 
 ```
 
