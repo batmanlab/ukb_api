@@ -10,7 +10,7 @@ Additionally this repository also houses the notebook files related to this proj
 [Documentation for this repo can be found here]
 ```
 
-![Documentation](ukb_api/docs/build/html/index.html)
+![Documentation](docs/build/html/index.html)
 
 
 
