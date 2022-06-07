@@ -8,10 +8,11 @@ Additionally this repository also houses the notebook files related to this proj
 ## Documentation
 ```
 [Documentation for this repo can be found here]
+```
 
 ![Documentation](ukb_api/docs/build/html/index.html)
 
-```
+
 
 ## Installation
 ```
