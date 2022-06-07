@@ -1,10 +1,18 @@
-# UKB_Wrapper_Repo
+# UKB_API
 
 This library has been designed to provide convenient access to UKB dataset to users of PSC and Openmind7 clusters by leveraging Datalad package. Datalad allows its users to store large datasets in a distributed manner and faciliate easier collaboration. Currently the repo has modules dedicated to three types of data stored within the UKB dataset namely Scalar, Genetic and Bulk data types. The library also serves as a directory for all the unique categories and field ids which are part of UKB dataset. 
 
 Datalad is designed as a tool to version control large datasets in a manner quite similar to Git but limited to either a single network, HPC cluster. This library has been designed to help the end user make use the principles of datalad to access data stored on a different cluster and even with limited knowledge of how datalad works.
 
 Additionally this repository also houses the notebook files related to this project showcasing exploratory data analysis done on multiple categories.The modules are currently designed to give access to the necessary data through the use of maximum of three-four lines of code.
+## Documentation
+```
+[Documentation for this repo can be found here]
+```
+
+![Documentation](docs/build/html/index.html)
+
+
 
 ## Installation
 ```
