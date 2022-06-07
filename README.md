@@ -8,7 +8,7 @@ Additionally this repository also houses the notebook files related to this proj
 
 ## Installation
 ```
-pip install ukbaccessrepo==0.370
+pip install ukb-api==0.370
 
 ```
 
