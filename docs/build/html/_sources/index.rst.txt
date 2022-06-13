@@ -10,6 +10,8 @@ Welcome to UKB API's documentation!
    :maxdepth: 2
    :caption: Contents:
 
+   ukb_api
+
 
 
 Indices and tables
