@@ -14,7 +14,7 @@ import os
 import sys
 # sys.path.insert(0, '/media/tighu/extended_storage/ukb_api/ukb_api')
 # sys.path.insert(0, '/media/tighu/extended_storage/ukb_api/ukb_api')
-sys.path.append(os.path.abspath('../../ukb_api'))
+sys.path.append(os.path.abspath('../../ukb_api/module_bulk_data_handler'))
 
 # -- Project information -----------------------------------------------------
 
