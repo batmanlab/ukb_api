@@ -122,13 +122,14 @@ class bulk_data_handler:
         return get_close_matches(query, formatted_category_list, 5, 0.3)
 
     def fetch_bulk_data(self, subject_list, data_type_string="T1_Image"):
-        """A helper function which returns path to imaging and freesurfer data
-        for provided subjects.
+        """A helper function which returns file paths to imaging and freesurfer
+        data for provided subjects based on type string provided.By default,
+        returns file paths for T1 image.
 
         Args:
             subject_list: A list of subjects of interest.
             data_type_string: A string representing the type of file to be
-                fetched.
+                fetched. Examples include T1_image,FS_brain,FS_wm.
 
         Returns:
            Paths to files requested for input subjects.
@@ -166,7 +167,7 @@ class bulk_data_handler:
             for subject in subject_list:
 
                 if subject in subjects_available:
-                    check_path = Freesurfer_directory+subject+"/3646153_20263_2_0/FreeSurfer/mri/brain.mgz"
+                    check_path = Freesurfer_directory+subject+"/"+subject+"_20263_2_0/FreeSurfer/mri/brain.mgz"
 
                     if os.path.exists(check_path):
                         subjects_found.append(subject)
@@ -183,7 +184,7 @@ class bulk_data_handler:
             for subject in subject_list:
 
                 if subject in subjects_available:
-                    check_path = Freesurfer_directory+subject+"/3646153_20263_2_0/FreeSurfer/mri/wm.mgz"
+                    check_path = Freesurfer_directory+subject+"/"+subject+"_20263_2_0/FreeSurfer/mri/wm.mgz"
 
                     if os.path.exists(check_path):
                         subjects_found.append(subject)
