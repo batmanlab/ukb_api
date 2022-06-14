@@ -1,7 +1,8 @@
 import os
 from difflib import get_close_matches
 import pandas as pd
-static_resource_path = "/ocean/projects/asc170022p/shared/Data/ukBiobank/meta_data_november_2021/"
+
+static_resource_path = "/ocean/projects/asc170022p/shared/Data/ukBiobank/meta_data_files/"
 T1_directory = "/ocean/projects/asc170022p/shared/Data/ukBiobank/datalad_dataset/inputs/brain_imaging_ds/"
 Freesurfer_directory = "/ocean/projects/asc170022p/tighu/UKB_Freesurfer_March2022/"
 
