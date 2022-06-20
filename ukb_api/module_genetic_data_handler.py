@@ -82,6 +82,9 @@ class genetic_data_handler:
         Returns:
             A single concatenated XArrayDataset.
 
+        Example:
+            api_object.get_genetic_data(subject_list=subject_list, variant_dict={chr1: [snp0001]})
+
         """
 
         if subject_list is None:
@@ -107,7 +110,7 @@ class genetic_data_handler:
         res = xarray.concat(genetic_data_array, dim="variant")
         return res
 
-    def get_genetic_data_from_snps(self, subject_list=None, snp_list = None):
+    def get_genetic_data_from_snps(self, subject_list=None, snp_list=None):
         """The Primary function of the module which allows user to provide a
          subject list and list of snps to retrieve genetic data in form of
          XArray Datasets.
@@ -117,10 +120,11 @@ class genetic_data_handler:
             subject_list: List of subjects which are of interest.
             snp_list: A python list containing SNPs of interest.
 
-
-
         Returns:
             A single concatenated XArrayDataset.
+
+        Example:
+            api_object.get_genetic_data_from_snps(subject_list=subject_list, snp_list=[snp0001,snp0002,snp0003])
 
         """
 

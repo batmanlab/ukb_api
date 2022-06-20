@@ -1,7 +1,8 @@
 import os
 from difflib import get_close_matches
 import pandas as pd
-static_resource_path = "/ocean/projects/asc170022p/shared/Data/ukBiobank/meta_data_november_2021/"
+
+static_resource_path = "/ocean/projects/asc170022p/shared/Data/ukBiobank/meta_data_files/"
 T1_directory = "/ocean/projects/asc170022p/shared/Data/ukBiobank/datalad_dataset/inputs/brain_imaging_ds/"
 Freesurfer_directory = "/ocean/projects/asc170022p/tighu/UKB_Freesurfer_March2022/"
 
@@ -139,9 +140,7 @@ class bulk_data_handler:
         if subject_list is None:
             raise Exception
 
-        if all(subject_list not in os.listdir(T1_directory)):
 
-            print("T1 not available for all")
         if data_type_string == "T1_Image":
             data_files_path = []
             subjects_available = os.listdir(T1_directory)

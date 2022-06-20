@@ -33,6 +33,9 @@ class bulk_data_handler:
             List of strings which represent all the data categories
             present in the UKB dataset.
 
+        Example:
+            api_object.display_all_categories()
+
         """
 
         unique_category_file_object = open(static_resource_path+"all_unique_categories.txt", "r")
@@ -51,6 +54,8 @@ class bulk_data_handler:
         Returns:
             A pandas object having related field ids of the input category.
 
+        Example:
+            api_object.get_field_ids_for_category("T1 Brain Imaging")
         """
 
         temp_field_ids_df = pd.read_csv(static_resource_path+"ukb_field_ids.csv")
@@ -66,6 +71,9 @@ class bulk_data_handler:
 
         Returns:
             A list of subject ids associated with the input field id.
+
+        Example:
+            api_object.get_subject_list_field_ids(20252)
 
         """
 
@@ -122,28 +130,30 @@ class bulk_data_handler:
         formatted_category_list = [a.rstrip() for a in all_categories_list]
         return get_close_matches(query, formatted_category_list, 5, 0.3)
 
-    def fetch_bulk_data(self, subject_list, data_type_string="T1_Image"):
+    def fetch_bulk_data(self, subject_list=None, data_type="T1_Image"):
         """A helper function which returns file paths to imaging and freesurfer
         data for provided subjects based on type string provided.By default,
         returns file paths for T1 image.
 
         Args:
             subject_list: A list of subjects of interest.
-            data_type_string: A string representing the type of file to be
+            data_type: A string representing the type of file to be
                 fetched. Examples include T1_image,FS_brain,FS_wm.
 
         Returns:
            Paths to files requested for input subjects.
+
+        Example:
+            api_object.fetch_bulk_data(subject_list=subject_list, data_type_string="T1_Image")
+
 
         """
 
         if subject_list is None:
             raise Exception
 
-        if all(subject_list not in os.listdir(T1_directory)):
 
-            print("T1 not available for all")
-        if data_type_string == "T1_Image":
+        if data_type == "T1_Image":
             data_files_path = []
             subjects_available = os.listdir(T1_directory)
 
@@ -159,7 +169,7 @@ class bulk_data_handler:
 
             return data_files_path
 
-        elif data_type_string == "FS_brain":
+        elif data_type == "FS_brain":
             data_files_path = []
             subjects_available = os.listdir(Freesurfer_directory)
 
@@ -176,7 +186,7 @@ class bulk_data_handler:
 
             return data_files_path
 
-        elif data_type_string == "FS_wm":
+        elif data_type == "FS_wm":
             data_files_path = []
             subjects_available = os.listdir(Freesurfer_directory)
 

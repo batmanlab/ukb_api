@@ -39,6 +39,9 @@ class scalar_data_handler:
         Returns:
             A list having all the unique categories of UKB.
 
+        Example:
+            api_object.display_all_categories()
+
         """
 
         unique_category_file_object = open(meta_data_path+"all_unique_categories.txt", "r")
@@ -59,6 +62,9 @@ class scalar_data_handler:
             A pandas object having related field ids of the category provided
             as input.
 
+        Example:
+            api_object.get_field_ids_for_category(category_name="Freesurfer Segmentation")
+
         """
         temp_field_ids_df = pd.read_csv(meta_data_path+"ukb_field_ids.csv")
         return temp_field_ids_df[temp_field_ids_df['Category'] == category_name]
@@ -74,6 +80,9 @@ class scalar_data_handler:
 
         Returns:
             A list of subject ids relevant to the input field_id.
+
+        Example:
+            api_object.get_subject_list_field_ids(field_id= 20263)
 
         """
 
@@ -112,6 +121,9 @@ class scalar_data_handler:
             subject_list: list of subject ids of interest
         Returns:
             A pandas object containing the scalar data.
+
+        Example:
+            api_object.get_data_scalar(field_id_list= 20263)
 
         """
 

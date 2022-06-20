@@ -75,6 +75,9 @@ class harmonize_fs_data:
             A pandas dataframe which has all the features from freesurfer
             like cortical measurements and subcortical volume numbers.
 
+        Example:
+            api_object.get_demographics_data(subject_list=None)
+
         """
 
         if subject_list is None:
