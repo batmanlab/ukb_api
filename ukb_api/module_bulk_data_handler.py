@@ -154,51 +154,58 @@ class bulk_data_handler:
 
 
         if data_type == "T1_Image":
-            data_files_path = []
             subjects_available = os.listdir(T1_directory)
-
-            subjects_found = []
+            bulk_data_dict = {}
+            subjects_not_available = []
 
             for subject in subject_list:
 
                 if subject in subjects_available:
-                    check_path = T1_directory+subject+"/20252_2_0/T1/T1.nii.gz"
-                    if os.path.exists(check_path):
-                        subjects_found.append(subject)
-                        data_files_path.append(check_path)
+                    for data_version in ["20252_2_0", "20252_3_0"]:
+                        check_path = T1_directory+subject+"/"+data_version+"/T1/T1.nii.gz"
+                        if os.path.exists(check_path):
+                            bulk_data_dict[subject] = bulk_data_dict.get(subject,[])+[check_path]
 
-            return data_files_path
+                else:
+
+                    subjects_not_available.append(subject)
+
+            return bulk_data_dict, subjects_not_available
 
         elif data_type == "FS_brain":
-            data_files_path = []
-            subjects_available = os.listdir(Freesurfer_directory)
 
-            subjects_found = []
+            subjects_available = os.listdir(Freesurfer_directory)
+            bulk_data_dict = {}
+            subjects_not_available = []
 
             for subject in subject_list:
 
                 if subject in subjects_available:
-                    check_path = Freesurfer_directory+subject+"/"+subject+"_20263_2_0/FreeSurfer/mri/brain.mgz"
+                    for data_version in ["20263_2_0", "20263_3_0"]:
+                        check_path = Freesurfer_directory+subject+"/"+subject+"_"+data_version+"/FreeSurfer/mri/brain.mgz"
+                        if os.path.exists(check_path):
+                            bulk_data_dict[subject] = bulk_data_dict.get(subject, []) + [check_path]
 
-                    if os.path.exists(check_path):
-                        subjects_found.append(subject)
-                        data_files_path.append(check_path)
+                else:
+                    subjects_not_available.append(subject)
 
-            return data_files_path
+            return bulk_data_dict, subjects_not_available
 
         elif data_type == "FS_wm":
-            data_files_path = []
-            subjects_available = os.listdir(Freesurfer_directory)
 
-            subjects_found = []
+            subjects_available = os.listdir(Freesurfer_directory)
+            bulk_data_dict = {}
+            subjects_not_available = []
 
             for subject in subject_list:
 
                 if subject in subjects_available:
-                    check_path = Freesurfer_directory+subject+"/"+subject+"_20263_2_0/FreeSurfer/mri/wm.mgz"
+                    for data_version in ["20263_2_0", "20263_3_0"]:
+                        check_path = Freesurfer_directory + subject + "/" + subject + "_" + data_version + "/FreeSurfer/mri/wm.mgz"
+                        if os.path.exists(check_path):
+                            bulk_data_dict[subject] = bulk_data_dict.get(subject, []) + [check_path]
 
-                    if os.path.exists(check_path):
-                        subjects_found.append(subject)
-                        data_files_path.append(check_path)
+                else:
+                    subjects_not_available.append(subject)
 
-            return data_files_path
+            return bulk_data_dict, subjects_not_available
