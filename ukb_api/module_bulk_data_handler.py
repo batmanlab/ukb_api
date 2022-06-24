@@ -141,7 +141,9 @@ class bulk_data_handler:
                 fetched. Examples include T1_image,FS_brain,FS_wm.
 
         Returns:
-           Paths to files requested for input subjects.
+           A bulk data dictionary which has key as subject_ids and values as
+           list of file paths along with a list of subjects currently not
+           available.
 
         Example:
             api_object.fetch_bulk_data(subject_list=subject_list, data_type_string="T1_Image")
@@ -151,7 +153,6 @@ class bulk_data_handler:
 
         if subject_list is None:
             raise Exception
-
 
         if data_type == "T1_Image":
             subjects_available = os.listdir(T1_directory)
@@ -164,7 +165,7 @@ class bulk_data_handler:
                     for data_version in ["20252_2_0", "20252_3_0"]:
                         check_path = T1_directory+subject+"/"+data_version+"/T1/T1.nii.gz"
                         if os.path.exists(check_path):
-                            bulk_data_dict[subject] = bulk_data_dict.get(subject,[])+[check_path]
+                            bulk_data_dict[subject] = bulk_data_dict.get(subject, [])+[check_path]
 
                 else:
 
@@ -182,7 +183,8 @@ class bulk_data_handler:
 
                 if subject in subjects_available:
                     for data_version in ["20263_2_0", "20263_3_0"]:
-                        check_path = Freesurfer_directory+subject+"/"+subject+"_"+data_version+"/FreeSurfer/mri/brain.mgz"
+                        check_path = Freesurfer_directory+subject+"/"+subject+"_" +\
+                                     data_version+"/FreeSurfer/mri/brain.mgz"
                         if os.path.exists(check_path):
                             bulk_data_dict[subject] = bulk_data_dict.get(subject, []) + [check_path]
 
@@ -201,7 +203,8 @@ class bulk_data_handler:
 
                 if subject in subjects_available:
                     for data_version in ["20263_2_0", "20263_3_0"]:
-                        check_path = Freesurfer_directory + subject + "/" + subject + "_" + data_version + "/FreeSurfer/mri/wm.mgz"
+                        check_path = Freesurfer_directory + subject + "/" + subject + "_" + \
+                                     data_version + "/FreeSurfer/mri/wm.mgz"
                         if os.path.exists(check_path):
                             bulk_data_dict[subject] = bulk_data_dict.get(subject, []) + [check_path]
 
