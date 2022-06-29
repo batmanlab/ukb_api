@@ -85,6 +85,7 @@ class bulk_data_handler:
                 self.columns_to_read_for_field_id.append(column_name.strip())
 
         tempdf = pd.read_csv(static_resource_path+"ukb49570.csv", usecols=self.columns_to_read_for_field_id+['eid'])
+        tempdf = tempdf.dropna(thresh=2)
 
         return tempdf['eid'].unique()
 
