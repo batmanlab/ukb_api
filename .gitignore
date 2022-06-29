@@ -1,6 +1,7 @@
 ukb_api.egg-info/
 dist/
 build/
+.idea/
 
 
 
