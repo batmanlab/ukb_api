@@ -1,5 +1,0 @@
-pandas==1.1.5
-datalad
-pandas-plink
-numpy
-dataclasses
