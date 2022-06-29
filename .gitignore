@@ -2,6 +2,7 @@ ukb_api.egg-info/
 dist/
 build/
 .idea/
+ukb_api/__pycache__/
 
 
 
