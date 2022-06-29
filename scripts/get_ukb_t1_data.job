@@ -1,0 +1,6 @@
+#!/bin/bash
+source ~/.bashrc
+conda activate ukb_conda
+eval `ssh-agent`
+echo $idx
+python /ocean/projects/asc170022p/shared/Data/ukBiobank/datalad_dataset/code/get_t1_ds.py $idx
