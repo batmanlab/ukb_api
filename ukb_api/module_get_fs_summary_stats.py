@@ -3,7 +3,7 @@ meta_data_path = "/ocean/projects/asc170022p/shared/Data/ukBiobank/meta_data_fil
 fs_combat_cols = ['eid', '53-2.0', '34-0.0', '31-0.0', '54-2.0']
 
 
-class harmonize_fs_data:
+class summary_stats_fs:
     def __init__(self):
         return
 
@@ -60,7 +60,7 @@ class harmonize_fs_data:
         elif center == 11027.0:
             return "Newcastle"
 
-    def get_demographics_data(self, subject_list=None):
+    def get_freesurfer_summary_stats(self, subject_list=None):
         """The primary function of this module which lets user provide a
         subject list. Returned is a pandas dataframe which has metadata
         and freesurfer features. If no subject list is provided all
