@@ -81,7 +81,7 @@ class summary_stats_fs:
         """
 
         if subject_list is None:
-            fs_subject_list = harmonize_fs_data.get_subject_ids()
+            fs_subject_list = summary_stats_fs.get_subject_ids()
         else:
             fs_subject_list = subject_list
 
@@ -91,12 +91,12 @@ class summary_stats_fs:
             columns={"eid": "Subject_ID", "31-0.0": "Sex", "34-0.0": "Year_of_Birth", "53-2.0": "Date_of_Brain_Scan",
                      "54-2.0": "Assesment_Centre"})
         long_combat_df['Assesment_Centre'] = long_combat_df['Assesment_Centre'].apply(lambda x:
-                                                                                      harmonize_fs_data.get_center(x))
+                                                                                      summary_stats_fs.get_center(x))
         long_combat_df = long_combat_df.reset_index(drop=True)
         long_combat_df['Date_of_Brain_Scan'] = pd.to_datetime(long_combat_df['Date_of_Brain_Scan'])
-        long_combat_df['Sex'] = long_combat_df['Sex'].apply(lambda x: harmonize_fs_data.ukb_subject_sex(x))
-        long_combat_df['Age'] = long_combat_df['Year_of_Birth'].apply(lambda x: harmonize_fs_data.ukb_subject_age(x))
-        long_combat_df['Age_at_Scan'] = long_combat_df.apply(lambda x: harmonize_fs_data.ukb_subject_age_at_scan(x),
+        long_combat_df['Sex'] = long_combat_df['Sex'].apply(lambda x: summary_stats_fs.ukb_subject_sex(x))
+        long_combat_df['Age'] = long_combat_df['Year_of_Birth'].apply(lambda x: summary_stats_fs.ukb_subject_age(x))
+        long_combat_df['Age_at_Scan'] = long_combat_df.apply(lambda x: summary_stats_fs.ukb_subject_age_at_scan(x),
                                                              axis=1)
 
         fs_features_df = pd.read_csv(meta_data_path + "ukb_fs_features.csv")
