@@ -26,14 +26,4 @@ def test_get_summary_stats():
     generated_df = pd.read_csv(meta_data_path+"ukb_basic_demographics_and_summary_stats.csv")
 
     assert(generated_df.equals(df_from_api))
-
-
-
-
-
-
-
-
-
-
-
+    
