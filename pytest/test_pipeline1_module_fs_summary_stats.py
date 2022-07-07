@@ -21,6 +21,7 @@ def test_function_get_subject_list():
 
 
 def test_get_summary_stats():
+    meta_data_path = "/ocean/projects/asc170022p/shared/Data/ukBiobank/meta_data_files/"
     summary_stats_object = module_get_fs_summary_stats.summary_stats_fs()
     df_from_api = summary_stats_object.get_freesurfer_summary_stats()
 
