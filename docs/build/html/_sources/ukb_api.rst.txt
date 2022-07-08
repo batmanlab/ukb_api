@@ -20,10 +20,10 @@ ukb\_api.module\_genetic\_data\_handler module
    :undoc-members:
    :show-inheritance:
 
-ukb\_api.module\_harmonize\_fs\_data module
--------------------------------------------
+ukb\_api.module\_get\_fs\_summary\_stats module
+-----------------------------------------------
 
-.. automodule:: ukb_api.module_harmonize_fs_data
+.. automodule:: ukb_api.module_get_fs_summary_stats
    :members:
    :undoc-members:
    :show-inheritance:
