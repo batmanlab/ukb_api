@@ -13,6 +13,10 @@
 import os
 import sys
 sys.path.insert(0, os.path.abspath('../..'))
+sys.path.insert(1, os.path.abspath('../../ukb_api/module_bulk_data_handler'))
+sys.path.insert(2, os.path.abspath('../../ukb_api/module_get_fs_summary_stats'))
+sys.path.insert(3, os.path.abspath('../../ukb_api/module_scalar_data_handler'))
+sys.path.insert(4, os.path.abspath('../../ukb_api/module_genetic_data_handler'))
 # sys.path.insert(1, os.path.abspath('../../ukb_api'))
 # sys.path.insert(2, os.path.abspath('../../ukb_api/module_bulk_data_handler'))
 
