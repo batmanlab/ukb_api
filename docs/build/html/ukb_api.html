@@ -42,7 +42,7 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">ukb_api package</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#submodules">Submodules</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#module-ukb_api.module_bulk_data_handler">ukb_api.module_bulk_data_handler module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#module-ukb_api.module_genetic_data_handler">ukb_api.module_genetic_data_handler module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ukb-api-module-genetic-data-handler-module">ukb_api.module_genetic_data_handler module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#module-ukb_api.module_get_fs_summary_stats">ukb_api.module_get_fs_summary_stats module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#module-ukb_api.module_scalar_data_handler">ukb_api.module_scalar_data_handler module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#module-ukb_api">Module contents</a></li>
@@ -203,95 +203,8 @@ on query given by user, uses built-in function to get close match.</p>
 </dd></dl>
 
 </section>
-<section id="module-ukb_api.module_genetic_data_handler">
-<span id="ukb-api-module-genetic-data-handler-module"></span><h2>ukb_api.module_genetic_data_handler module<a class="headerlink" href="#module-ukb_api.module_genetic_data_handler" title="Permalink to this heading"></a></h2>
-<dl class="py class">
-<dt class="sig sig-object py" id="ukb_api.module_genetic_data_handler.genetic_data_handler">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ukb_api.module_genetic_data_handler.</span></span><span class="sig-name descname"><span class="pre">genetic_data_handler</span></span><a class="headerlink" href="#ukb_api.module_genetic_data_handler.genetic_data_handler" title="Permalink to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>A class to represent family of methods that can fetch list of xarray objects based on combination of list of
-subjects and variants provided.</p>
-<dl class="py method">
-<dt class="sig sig-object py" id="ukb_api.module_genetic_data_handler.genetic_data_handler.get_genetic_data">
-<span class="sig-name descname"><span class="pre">get_genetic_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">subject_list</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variant_dict</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ukb_api.module_genetic_data_handler.genetic_data_handler.get_genetic_data" title="Permalink to this definition"></a></dt>
-<dd><p>The Primary function of the module which allows user to provide a
-subject list and dictionary which has keys as chromosome numbers and
-values as a list of variants of interest. If no subjects list is
-provided 100 random subjects are considered.If no dictionary is
-provided as input, an exception is raised.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>subject_list</strong> – List of subjects which are of interest.</p></li>
-<li><p><strong>variant_dict</strong> – A python dictionary having keys as relevant
-chromosome number and values as list of variants that are
-of interest to us.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>A single concatenated XArrayDataset.</p>
-</dd>
-</dl>
-<p class="rubric">Example</p>
-<p>api_object.get_genetic_data(subject_list=subject_list, variant_dict={chr1: [snp0001]})</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="ukb_api.module_genetic_data_handler.genetic_data_handler.get_genetic_data_from_snps">
-<span class="sig-name descname"><span class="pre">get_genetic_data_from_snps</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">subject_list</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">snp_list</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ukb_api.module_genetic_data_handler.genetic_data_handler.get_genetic_data_from_snps" title="Permalink to this definition"></a></dt>
-<dd><dl class="simple">
-<dt>The Primary function of the module which allows user to provide a</dt><dd><p>subject list and list of snps to retrieve genetic data in form of
-XArray Datasets.</p>
-</dd>
-</dl>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>subject_list</strong> – List of subjects which are of interest.</p></li>
-<li><p><strong>snp_list</strong> – A python list containing SNPs of interest.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>A single concatenated XArrayDataset.</p>
-</dd>
-</dl>
-<p class="rubric">Example</p>
-<p>api_object.get_genetic_data_from_snps(subject_list=subject_list, snp_list=[snp0001,snp0002,snp0003])</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="ukb_api.module_genetic_data_handler.genetic_data_handler.get_path_genetic_files">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_path_genetic_files</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ukb_api.module_genetic_data_handler.genetic_data_handler.get_path_genetic_files" title="Permalink to this definition"></a></dt>
-<dd><p>A static function which lets user see all the
-genetic data locations.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>None</strong> – No parameter required for this function.</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>A string representing the path where Genetic
-Data is stored on Bridges2.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="ukb_api.module_genetic_data_handler.genetic_data_handler.get_subject_ids">
-<span class="sig-name descname"><span class="pre">get_subject_ids</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ukb_api.module_genetic_data_handler.genetic_data_handler.get_subject_ids" title="Permalink to this definition"></a></dt>
-<dd><p>A utility function which lets user fetch numpy array
-containing the list of all subject ids.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>None</strong> – No parameter required for this function.</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>A list containing the subject IDs.</p>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
+<section id="ukb-api-module-genetic-data-handler-module">
+<h2>ukb_api.module_genetic_data_handler module<a class="headerlink" href="#ukb-api-module-genetic-data-handler-module" title="Permalink to this heading"></a></h2>
 </section>
 <section id="module-ukb_api.module_get_fs_summary_stats">
 <span id="ukb-api-module-get-fs-summary-stats-module"></span><h2>ukb_api.module_get_fs_summary_stats module<a class="headerlink" href="#module-ukb_api.module_get_fs_summary_stats" title="Permalink to this heading"></a></h2>
