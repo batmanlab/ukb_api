@@ -94,7 +94,7 @@ class scalar_data_handler:
                 columns_to_read_for_field_id.append(column_name.strip())
 
         tempdf = pd.read_csv(meta_data_path+"ukb49570.csv", usecols=columns_to_read_for_field_id+['eid'])
-
+        tempdf = tempdf.dropna(thresh=2)
         return tempdf['eid'].unique()
 
     def get_data_scalar(self, field_id_list=None, subject_list=None):
